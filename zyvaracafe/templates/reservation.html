@@ -1,0 +1,327 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+
+    
+
+    body{
+
+        margin: 0px;
+    }
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 4;
+    background-color: transparent;
+}
+
+.navlogo {
+    font-size: 34px;
+    letter-spacing: 3px;
+    color: white !important;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-right: 20px;
+}
+
+.nav-link:hover {
+    opacity: 0.5;
+}
+
+/* hamburger icon color on mobile */
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.navbar-toggler {
+    border-color: white;
+}
+
+
+.bg {
+    display: flex;
+    background-image: url('{% static "images/hp9.jpg" %}');
+    background-position: center;
+    background-size: cover;       
+    min-height: 100vh;
+    background-attachment: fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+/* dark overlay trick */
+.bg::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.49);
+}
+    .maincontainer {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background-color: transparent;
+        height: auto;
+        padding-top: 180px;
+        width: 100%;        
+        max-width: 1300px; 
+        color: whitesmoke;
+    }
+
+    .container1{
+        color: whitesmoke;
+        font-family: 'Playfair Display', serif;
+        position: relative;
+        height: auto; 
+        top:0px;           
+        padding: 60px 0 40px 0;
+    }
+
+
+    .container2{
+        padding: 40px;
+        top: 150px;
+        margin-top: 190px;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        background-color:rgba(0,0,0,0.4) ;
+    }
+
+
+
+    .container2 input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px rgba(0,0,0,0.3) inset;
+    -webkit-text-fill-color: white;
+}
+
+
+
+
+/* DATE TIME LABEL  */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    background-color: transparent !important;
+    color: rgba(255,255,255,0.9) !important;
+}
+
+.form-floating > label {
+    background: transparent !important;
+    background-color: transparent !important;
+    -webkit-background-clip: unset !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.form-floating > label {
+    --bs-body-bg: transparent !important;
+    background-color: transparent !important;
+    color: rgba(255, 255, 255, 0.912) !important;
+}
+
+
+
+/*   DATE TIME small labels(dd-mm-yy and --/--)   */
+.form-control {
+    background-color: rgba(0,0,0,0.2) !important;
+    color: rgba(235, 226, 226, 0.638) !important;
+    border: 1px solid rgba(255, 255, 255, 0.961);
+}
+
+.form-control:focus {
+    background-color: rgba(0,0,0,0.7) !important;
+    color: white !important;
+    border-color: rgba(255,255,255,0.5);
+    box-shadow: none;
+}
+
+
+input[type="date"],
+input[type="time"] {
+    color-scheme: dark;  /* ← this makes the date/time picker dark */
+    color: rgb(43, 41, 41);
+}
+
+
+
+.container2 label{
+    margin-left: 10px;
+    font-size: 17px;
+}
+
+
+
+.container2 button{
+    width: 100%;
+    padding: 15px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    letter-spacing: 3px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+
+.container2 button:hover {
+    background-color: white;
+    color: black;
+}
+
+
+
+.contactinfo{
+    width: 100%;
+    height: auto;
+    min-height: 400px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+
+
+</style>
+
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid px-4">
+
+        <!-- logo -->
+        <a class="navbar-brand navlogo" href="{% url 'home' %}"><i>CAFÉ</i></a>
+
+        <!-- hamburger button for mobile -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- nav links -->
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav gap-4">
+                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Menu</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'cakes' %}">Celebration Cakes</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'reservation' %}">Reservation</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<div class="bg">
+    <div class="maincontainer">
+        <div class="container1">
+            <h1 style="font-size: 120px;">Grab A Table.</h1>
+        </div>
+
+        <div class="container2">
+            <div class="row g-3"  style="background-color: rgba(0,0,0,0.5);">
+
+
+
+
+                <div class="col-md-6">
+            <div class="form-floating">
+            <input type="text" class="form-control" placeholder=" " id="floatingInputGrid" >
+            <label for="floatingInputGrid">Name</label>
+        </div>
+        </div>
+
+                                <div class="col-md-6">
+            <div class="form-floating">
+            <input type="text" class="form-control" placeholder=" " id="floatingInputGrid" >
+            <label for="floatingInputGrid">Email Address</label>
+        </div>
+        </div>
+
+
+
+
+
+                        <div class="col-md-6">
+            <div class="form-floating">
+            <input type="tel" class="form-control" placeholder=" " id="floatingInputGrid">
+            <label for="floatingInputGrid">Phone Number</label>
+        </div>
+        </div>
+
+                                <div class="col-md-6">
+            <div class="form-floating">
+            <input type="number" class="form-control" placeholder=" " id="floatingInputGrid" >
+            <label for="floatingInputGrid">Number of Guests</label>
+        </div>
+        </div>
+
+
+
+                        <div class="col-md-6">
+            <div class="form-floating">
+            <input type="date" class="form-control" placeholder=" " id="floatingInputGrid" >
+            <label for="floatingInputGrid">Date</label>
+        </div>
+        </div>
+
+
+
+                        <div class="col-md-6">
+            <div class="form-floating">
+            <input type="time" class="form-control" placeholder=" " id="floatingInputGrid" >
+            <label for="floatingInputGrid">Time</label>
+        </div>
+        </div>
+
+
+
+            <div class="col-md-12">
+            <div class="form-floating">
+            <textarea type="text" class="form-control" placeholder=" " id="floatingInputGrid" style="height: 150px"></textarea></textarea>
+            <label for="floatingInputGrid">Special Request</label>
+        </div>
+        </div>
+
+        <div class="col-md-12 mt-3">
+    <button type="submit">RESERVE MY TABLE</button>
+</div>
+
+
+
+
+            </div>
+            </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br>
+
+
+<div class="contactinfo">
+    <p>where</p>
+</div>
+
+
+
+
+</div>
+
+
+</body>
+</html>
