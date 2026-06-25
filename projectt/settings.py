@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-pkcsnth!)**qu_g1s4s_^r1e-!5&2-*ep5w@o=6qyjdoh^gc@#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['your-zyvara-render-url.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
